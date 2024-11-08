@@ -1,0 +1,17 @@
+﻿@model CRM.Customer
+@{
+    ViewBag.Title = "CustomerInsert";
+}
+<h2>CustomerInsert</h2>
+
+@using (Html.BeginForm("CustomerInsert", "Customer", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.FirstName)
+    @Html.ValidationMessageFor(model => model.FirstName)
+    <input type="submit" value="Add Customer" />
+}
+
+
+
+

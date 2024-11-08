@@ -1,0 +1,28 @@
+﻿@model List<CRM.Customer>
+@{
+    ViewBag.Title = "Customer Deatils";
+}
+
+<h2>Customer Deatils</h2>
+
+<main>
+    <div class="row">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tbody>
+            </tbody>
+            <tbody>
+
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@customer.CustomerId</td>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.Contact</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
