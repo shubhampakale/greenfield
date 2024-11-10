@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="dat_files\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\Payment\" />
@@ -239,10 +240,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Catalog\Catalog.csproj">
-      <Project>{1AA20B60-239A-489B-8A73-D4871D92A2ED}</Project>
-      <Name>Catalog</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CRM\CRM.csproj">
       <Project>{18e485f3-defd-4066-9fcc-568cfbcd160b}</Project>
       <Name>CRM</Name>
@@ -254,6 +251,18 @@
     <ProjectReference Include="..\orderProcessing\orderProcessing.csproj">
       <Project>{0c305bd9-c62d-43e7-8ac8-2b23ff2b5e7d}</Project>
       <Name>orderProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+      <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
+      <Name>POCOLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{935F4292-B569-4226-892C-97FDD6206385}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Specifications\Specifications.csproj">
+      <Project>{ec696607-d114-44a2-b818-841fb0a6c579}</Project>
+      <Name>Specifications</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -7,6 +7,7 @@ using Specifications;
 using POCO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Web;
 
 namespace BinaryDataRepositoryLib
 {
@@ -15,6 +16,10 @@ namespace BinaryDataRepositoryLib
 
         public bool Serialize(string filename, List<Product> products)
         {
+            //string relativePath = "~/Views/Products/products.dat";
+            //string fullPath = System.Web.HttpContext.Current.Server.MapPath(relativePath);
+            //string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
             bool status = false;
             BinaryFormatter formatter = new BinaryFormatter();
             using(FileStream stream = new FileStream(filename, FileMode.OpenOrCreate))

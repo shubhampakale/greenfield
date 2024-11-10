@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using POCO;
 using Specifications;
 using BinaryDataRepositoryLib;
+using System.IO;
 
 namespace Services
 {
@@ -19,19 +20,24 @@ namespace Services
             List<Product> products = new List<Product>();
             products.Add(new Product { ProductId = 1, Description= "Sun", Quantity =10, Title="Star", UnitPrice=1});
             products.Add(new Product { ProductId = 2, Description = "Moon", Quantity = 20, Title = "Celetial", UnitPrice = 2 });
+            products.Add(new Product { ProductId = 3, Description = "Planet", Quantity = 30, Title = "Fastest", UnitPrice = 3 });
 
             IDataRepository repo = new BinaryRepository();
-            status = repo.Serialize("products.dat", products);
+            //string filePath = "C:/Users/shubham.pakale/source/repos/eCommerse/EcommerceWeb/dat_files/products.dat";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
+            status = repo.Serialize(filePath, products);
 
             return status;
         }
 
         public List<Product> GetAllProducts()
         {
+            //string filePath = "C:/Users/shubham.pakale/source/repos/eCommerse/EcommerceWeb/dat_files/products.dat";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
             List<Product> products = new List<Product>();
             IDataRepository repository = new BinaryRepository();
 
-            products = repository.Deserialize("products.dat");
+            products = repository.Deserialize(filePath);
             return products;
         }
 

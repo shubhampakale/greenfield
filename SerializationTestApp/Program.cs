@@ -20,6 +20,7 @@ namespace SerializationTestApp
             {
                 Console.WriteLine(p.ProductId + " " + p.Title + " " + p.Description + " " + p.UnitPrice + " " + p.Quantity);
             }
+
             Console.ReadLine();
         }
     }

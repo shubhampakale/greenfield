@@ -1,10 +1,12 @@
-﻿using Catalog;
+﻿using Services;
+using Specifications;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using POCO;
 
 namespace EcommerceWeb.Controllers
 {
@@ -17,8 +19,9 @@ namespace EcommerceWeb.Controllers
         }
         public ActionResult ProductDetails()
         {
-            IProductServices productServices = new ProductServices();
-            List<Product> products = productServices.GetAllProducts();
+            ProductServices services = new ProductServices();
+            services.Seeding();
+            List<Product> products = services.GetAllProducts();
             return View(products);
         }
         public ActionResult ProductInsert()
