@@ -11,20 +11,20 @@ using System.Web;
 
 namespace BinaryDataRepositoryLib
 {
-    public class BinaryRepository : IDataRepository
+    public class BinaryRepository<T> : IDataRepository<T>
     {
 
-        public bool Serialize(string filename, List<Product> products)
+        public bool Serialize(string filename, List<T> items)
         {
             //string relativePath = "~/Views/Products/products.dat";
             //string fullPath = System.Web.HttpContext.Current.Server.MapPath(relativePath);
-            //string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+            //string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files","");
 
             bool status = false;
             BinaryFormatter formatter = new BinaryFormatter();
             using(FileStream stream = new FileStream(filename, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(stream, products);
+                formatter.Serialize(stream, items);
                 status = true;
                 stream.Close();
             }
@@ -32,21 +32,19 @@ namespace BinaryDataRepositoryLib
         }
 
 
-
-
-        public List<Product> Deserialize(string filename)
+        public List<T> Deserialize(string filename)
         {
-            List<Product> products = new List<Product>();
+            List<T> items = new List<T>();
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(filename,FileMode.Open);
 
             if(stream!=null)
             {
-               products =(List<Product>) formatter.Deserialize(stream);
+               items =(List<T>) formatter.Deserialize(stream);
             }
             stream.Close ();
 
-            return products;
+            return items;
         }
     }
 }

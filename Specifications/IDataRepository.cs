@@ -7,10 +7,11 @@ using POCO;
 
 namespace Specifications
 {
-    public interface IDataRepository
+    public interface IDataRepository<T>
     {
-        bool Serialize(string filename, List<Product> products);
+        bool Serialize(string filename, List<T> items);
 
-        List<Product> Deserialize(string filename);
+        List<T> Deserialize(string filename);
+
     }
 }

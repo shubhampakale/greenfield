@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace membership
 {
-    internal class CredentialServices
+    [Serializable]
+    public class Credential
     {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
