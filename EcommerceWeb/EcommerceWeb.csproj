@@ -245,10 +245,6 @@
       <Project>{18e485f3-defd-4066-9fcc-568cfbcd160b}</Project>
       <Name>CRM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\membership\Membership.csproj">
-      <Project>{06fae824-bc23-4a87-be05-670f077e4eb1}</Project>
-      <Name>Membership</Name>
-    </ProjectReference>
     <ProjectReference Include="..\orderProcessing\orderProcessing.csproj">
       <Project>{0c305bd9-c62d-43e7-8ac8-2b23ff2b5e7d}</Project>
       <Name>orderProcessing</Name>

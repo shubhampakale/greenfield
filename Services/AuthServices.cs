@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using BinaryDataRepositoryLib;
+using JsonDataRepositoryLib;
 using membership;
 using POCO;
 using Specifications;
@@ -14,6 +15,7 @@ namespace Services
 {
     public class AuthServices : IAuthServices
     {
+        string realtivePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views/credentials");
         public bool SeedingCred()
         {
             bool status;
@@ -22,10 +24,10 @@ namespace Services
                 new Credential { Email = "sp28@gmail.com", Password = "shub" }
             };
 
-            IDataRepository<Credential> repo = new BinaryRepository<Credential>();
+            IDataRepository<Credential> repo = new JsonRepository<Credential>();
             //string filepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "credentials.dat");
 
-            status = repo.Serialize("credentials.dat", credentials);
+            status = repo.Serialize(realtivePath, credentials);
             return status;
         }
         public bool SeedingUser()
@@ -49,9 +51,9 @@ namespace Services
         {
             //string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "credentials.dat");
             List<Credential> credentials = new List<Credential>();
-            IDataRepository<Credential> repository = new BinaryRepository<Credential>();
+            IDataRepository<Credential> repository = new JsonRepository<Credential>();
 
-            credentials = repository.Deserialize("credentials.dat");
+            credentials = repository.Deserialize(realtivePath);
             return credentials;
         }
         public bool Login(string username, string password)

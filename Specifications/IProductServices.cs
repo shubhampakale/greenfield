@@ -13,7 +13,7 @@ namespace Specifications
 
         Product Get(int ProductId);
 
-        bool Insert(Product product);
+        void Insert(Product product);
 
         bool Update(Product product);
 

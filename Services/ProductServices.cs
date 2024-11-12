@@ -10,20 +10,29 @@ using System.IO;
 
 using System.Configuration;
 using System.Text.Json;
+using JsonDataRepositoryLib;
 
 namespace Services
 {
     public class ProductServices : IProductServices
     {
+        string realtivePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views/products");
         public bool SeedingJSON()
         {
-            List<Product> products = new List<Product>();
-            products.Add(new Product { ProductId = 1, Description = "Sun", Quantity = 10, Title = "Star", UnitPrice = 1 });
-            string json = JsonSerializer.Serialize(products);
-            string jsonfile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json_files", "products.json");
-            //File.WriteAllText(jsonfile,);
+            try
+            {
+                List<Product> products = new List<Product>();
+                products.Add(new Product { ProductId = 1, Description = "Sun", Quantity = 10, Title = "Star", UnitPrice = 1 });
 
-            return false;
+                IDataRepository < Product > repo =  new JsonRepository<Product> ();
+                return repo.Serialize(realtivePath,products);
+              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
         }
         //sample data for testing purpose 
         public bool Seeding()
@@ -36,7 +45,7 @@ namespace Services
             products.Add(new Product { ProductId = 2, Description = "Moon", Quantity = 20, Title = "Celetial", UnitPrice = 2 });
             products.Add(new Product { ProductId = 3, Description = "Planet", Quantity = 30, Title = "Fastest", UnitPrice = 3 });
 
-            IDataRepository<Product> repo = new BinaryRepository<Product>();
+            IDataRepository<Product> repo = new JsonRepository<Product>();
             //string filePath = "C:/Users/shubham.pakale/source/repos/eCommerse/EcommerceWeb/dat_files/products.dat";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
             
@@ -50,12 +59,11 @@ namespace Services
 
         public List<Product> GetAllProducts()
         {
-            //string filePath = "C:/Users/shubham.pakale/source/repos/eCommerse/EcommerceWeb/dat_files/products.dat";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
+           
             List<Product> products = new List<Product>();
-            IDataRepository<Product> repository = new BinaryRepository<Product>();
+            IDataRepository<Product> repository = new JsonRepository<Product>();
 
-            products = repository.Deserialize(filePath);
+            products = repository.Deserialize(realtivePath);
             return products;
         }
 
@@ -75,15 +83,14 @@ namespace Services
             return foundProduct;
         }
      
-        public bool Insert(Product product) 
+        public void Insert(Product product) 
         {
             List<Product> products = GetAllProducts();
             
             products.Add(product);
-            IDataRepository<Product> repo = new BinaryRepository<Product>();
-            repo.Serialize("products.dat",products);
+            IDataRepository<Product> repo = new JsonRepository<Product>();
+            repo.Serialize(realtivePath, products);
 
-            return true;
         }
 
         public bool Update(Product productTobeUpdated)
@@ -95,8 +102,8 @@ namespace Services
                 allProducts.Remove(theProduct);
                 allProducts.Add(productTobeUpdated);
 
-                IDataRepository<Product> repo = new BinaryRepository<Product>();
-                repo.Serialize("products.dat", allProducts);
+                IDataRepository<Product> repo = new JsonRepository<Product>();
+                repo.Serialize(realtivePath, allProducts);
             }
             return false;
         }
@@ -109,8 +116,8 @@ namespace Services
                 List<Product> allProducts = GetAllProducts();
                 allProducts.Remove(theProduct);
 
-                IDataRepository<Product> repo = new BinaryRepository<Product>();
-                repo.Serialize("products.dat", allProducts);
+                IDataRepository<Product> repo = new JsonRepository<Product>();
+                repo.Serialize(realtivePath, allProducts);
             }
             return false;
         }

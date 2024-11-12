@@ -10,7 +10,7 @@ namespace POCO
     // are called poco classes in .net
     //POCO = Plain old clr object
 
-    [Serializable]
+    //[Serializable]
     public class Product
     {
         public int ProductId { get; set; }
