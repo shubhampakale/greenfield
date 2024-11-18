@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthServices.cs" />
+    <Compile Include="CartServices.cs" />
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,14 +57,17 @@
       <Project>{0a9387f2-384a-46b1-a689-2f9b6c7228e3}</Project>
       <Name>JsonDataRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerseEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Specifications\Specifications.csproj">
       <Project>{ec696607-d114-44a2-b818-841fb0a6c579}</Project>
       <Name>Specifications</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

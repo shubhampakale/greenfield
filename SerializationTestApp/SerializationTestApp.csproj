@@ -50,13 +50,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerseEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\eCommerseServices.csproj">
       <Project>{935f4292-b569-4226-892c-97fdd6206385}</Project>
-      <Name>Services</Name>
+      <Name>eCommerseServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

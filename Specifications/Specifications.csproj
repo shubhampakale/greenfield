@@ -42,14 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthServices.cs" />
+    <Compile Include="ICartServices.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="IProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerseEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

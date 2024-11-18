@@ -7,11 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using BinaryDataRepositoryLib;
 using JsonDataRepositoryLib;
-using membership;
-using POCO;
+using ECommerseEntities;
 using Specifications;
 
-namespace Services
+namespace EcommerseServices
 {
     public class AuthServices : IAuthServices
     {
@@ -70,9 +69,8 @@ namespace Services
                         return true;
                     }
                 }
-            }  
-            return false;
-            
+            }
+            return false;     
         }
 
      

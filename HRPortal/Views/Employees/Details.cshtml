@@ -1,0 +1,42 @@
+﻿@model HRPortal.Models.Employees
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Employee Details</h2>
+
+<main>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <td>Id :</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>Name :</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Basic salary :</td>
+            <td>@Model.BasicSalary</td>
+        </tr>
+        <tr>
+            <td>Daily Allowance :</td>
+            <td>@Model.DailyAllowance</td>
+        </tr>
+        <tr>
+            <td>Working days :</td>
+            <td>@Model.Workingdays</td>
+        </tr>
+        <tr>
+            <td>Join date :</td>
+            <td>@Model.Joindate</td>
+        </tr>
+        <tr>
+            <td>Is confirmed :</td>
+            <td>@Model.IsConfirmed</td>
+        </tr>
+    </table>
+
+
+</main>
+

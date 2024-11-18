@@ -1,4 +1,4 @@
-﻿@model List<POCO.Product>
+﻿@model ECommerseEntities.Product
 @{
     ViewBag.Title = "Product Details";
 }
@@ -6,24 +6,20 @@
 <main>
     <div class="row">
         <table border="1" cellpadding="10" cellspacing="0">
+           
             <tbody>
-            </tbody>
+                
+                <tr>
+                    <td>@Model.ProductId</td>
+                    <td>@Model.Title</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.UnitPrice</td>
+                    <td>@Model.Quantity</td>
+                </tr>
 
-            <tbody>
-
-                @foreach (var products in Model)
-                {
-                    <tr>
-                        <td>@products.ProductId</td>
-                        <td>@products.Title</td>
-                        <td>@products.Description</td>
-                        <td>@products.UnitPrice</td>
-                        <td>@products.Quantity</td>
-                    </tr>
-
-                }
 
             </tbody>
         </table>
     </div>
 </main>
+<a href="/shopping/AddToCart/@Model.ProductId">Add to cart</a>

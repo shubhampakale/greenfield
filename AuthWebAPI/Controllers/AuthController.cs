@@ -5,15 +5,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Specifications;
-using Services;
-using membership;
+using EcommerseServices;
+using ECommerseEntities;
 using System.Web.UI.WebControls;
 
 namespace AuthWebAPI.Controllers
 {
     public class AuthController : ApiController
     {
-        AuthServices svc = null;
+        IAuthServices svc = null;
 
         AuthController()
         {
@@ -22,8 +22,9 @@ namespace AuthWebAPI.Controllers
 
         public IEnumerable<Credential> Get()    // always returns collection 
         {
-            svc.SeedingCred();
-            List<Credential> credentials = svc.GetAllCredentials();
+            AuthServices svcc = new AuthServices();
+            svcc.SeedingCred();
+            List<Credential> credentials = svcc.GetAllCredentials();
             return credentials;
         }
 

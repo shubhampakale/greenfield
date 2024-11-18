@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace membership
+namespace ECommerseEntities
 {
-    [Serializable]
+    //[Serializable]
     public class Credential
     {
         public string Email { get; set; }

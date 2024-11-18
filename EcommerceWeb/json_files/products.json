@@ -1,0 +1,23 @@
+[
+  {
+    "ProductId": 1,
+    "Title": "Vivo Mobile",
+    "Description": "Electronic Phones",
+    "UnitPrice": 10000,
+    "Quantity": 10
+  },
+  {
+    "ProductId": 2,
+    "Title": "Mac",
+    "Description": "Laptop",
+    "UnitPrice": 150000,
+    "Quantity": 20
+  },
+  {
+    "ProductId": 3,
+    "Title": "Fastrack",
+    "Description": "Smartwatch",
+    "UnitPrice": 3000,
+    "Quantity": 30
+  }
+]

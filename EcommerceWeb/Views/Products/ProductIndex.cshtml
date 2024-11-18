@@ -3,14 +3,19 @@
     ViewBag.Title = "Index";
 
 }
-<h2>Product Index</h2>
-<a href="/Products/ProductDetails">Products List</a>
-<br />
-<a href="/Products/ProductInsert">Products Insert</a>
-<br />
-<a href="/Products/ProductUpdate">Products Update</a>
-<br />
-<a href="/Products/ProductDelete">Products Delete</a>
-<br />
+<h2>Product Lists</h2>
 
+
+
+@foreach (var products in Model)
+{
+    <h6>@products.Title</h6>
+      
+    <a href="/products/ProductDetails/@products.ProductId">Details</a>
+    <!-- Add to cart 
+        cart controller/ add to cart/ id -->
+        
+}
+
+            
 

@@ -1,7 +1,22 @@
-﻿
+﻿@model ECommerseEntities.Product
 @{
     ViewBag.Title = "AddToCart";
 }
 
-<h2>AddToCart</h2>
+<h2>Add To Cart</h2>
+
+<h3>@Model.Title</h3>
+<p>Price : @Model.UnitPrice</p>
+
+<form action="@Url.Action("AddToCart","Shopping")" method="post">
+    <input type="hidden" name="Id" value="@Model.ProductId"/>
+    <label for="Quantity">Quantity :</label>
+    <input type="number" id="Quantity" name="Quantity" value="1" min="1" max="10"/>
+
+    <input type="submit" value="Add to cart"/>
+</form>
+
+
+
+<!--Text box from which quantity will be taken and gives as item in post action methos -->
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using POCO;
+using ECommerseEntities;
 
 namespace Specifications
 {
@@ -16,9 +16,6 @@ namespace Specifications
         string ForgotPassword(string username);
 
         bool ChangePassword(string username, string oldpassword);
-
-
-
 
     }
 }

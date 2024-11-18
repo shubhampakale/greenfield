@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using membership;
-using POCO;
+using EcommerseServices;
+using ECommerseEntities;
 using Services;
 using Specifications;
 

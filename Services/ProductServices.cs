@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using POCO;
+using ECommerseEntities;
 using Specifications;
 using BinaryDataRepositoryLib;
 using System.IO;
@@ -16,7 +16,7 @@ namespace Services
 {
     public class ProductServices : IProductServices
     {
-        string realtivePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views/products");
+        string realtivePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json_files", "products.json");
         public bool SeedingJSON()
         {
             try
@@ -41,18 +41,18 @@ namespace Services
 
 
             List<Product> products = new List<Product>();
-            products.Add(new Product { ProductId = 1, Description= "Sun", Quantity =10, Title="Star", UnitPrice=1});
-            products.Add(new Product { ProductId = 2, Description = "Moon", Quantity = 20, Title = "Celetial", UnitPrice = 2 });
-            products.Add(new Product { ProductId = 3, Description = "Planet", Quantity = 30, Title = "Fastest", UnitPrice = 3 });
+            products.Add(new Product { ProductId = 1, Description= "Electronic Phones", Quantity =10, Title="Vivo Mobile", UnitPrice=1});
+            products.Add(new Product { ProductId = 2, Description = "Laptop", Quantity = 20, Title = "Mac", UnitPrice = 2 });
+            products.Add(new Product { ProductId = 3, Description = "Smartwatch", Quantity = 30, Title = "Fastrack", UnitPrice = 3 });
 
             IDataRepository<Product> repo = new JsonRepository<Product>();
             //string filePath = "C:/Users/shubham.pakale/source/repos/eCommerse/EcommerceWeb/dat_files/products.dat";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
+            //string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dat_files", "products.dat");
             
             
             //string filePath = (string)ConfigurationManager.AppSettings["ProductDataFilePath"];       // Path from web.config
             
-            status = repo.Serialize(filePath, products);
+            status = repo.Serialize(realtivePath, products);
 
             return status;
         }

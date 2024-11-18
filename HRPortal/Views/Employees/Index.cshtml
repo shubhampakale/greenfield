@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1><b>Employee Details</b> </h1>
+<!--
+
+    Employee    Name
+    buttons Details , Edit , Delete
+    <div style="display:flex; justify-content:space-between;align-items:center;margin-bottom"
+
+-->
+@foreach (var e in Model)
+{
+
+    <h1>@e.Name</h1>
+    <a href="/Employees/details/@e.Id">Details</a>
+    <a href="/Employees/edit/@e.Id">Edit</a>
+    <a href="/Employees/delete/@e.Id">Delete</a>
+}
+
+
+<hr />
+<a href="/Employees/create">Insert new Employee</a>
+
+

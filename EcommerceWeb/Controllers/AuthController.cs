@@ -13,6 +13,8 @@ namespace EcommerceWeb.Controllers
         {
             return View();
         }
+
+        
         public ActionResult Register ()
         {
             return View();
@@ -26,5 +28,6 @@ namespace EcommerceWeb.Controllers
         {
             return View();
         }
+     
     }
 }

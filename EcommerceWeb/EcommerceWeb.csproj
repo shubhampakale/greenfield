@@ -205,10 +205,12 @@
     <Content Include="Views\Customer\CustomerInsert.cshtml" />
     <Content Include="Views\Customer\CustomerUpdate.cshtml" />
     <Content Include="Views\Customer\CustomerDelete.cshtml" />
+    <Content Include="Views\Auth\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="dat_files\" />
+    <Folder Include="json_files\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\Payment\" />
@@ -249,13 +251,13 @@
       <Project>{0c305bd9-c62d-43e7-8ac8-2b23ff2b5e7d}</Project>
       <Name>orderProcessing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerseEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\eCommerseServices.csproj">
       <Project>{935F4292-B569-4226-892C-97FDD6206385}</Project>
-      <Name>Services</Name>
+      <Name>eCommerseServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\Specifications\Specifications.csproj">
       <Project>{ec696607-d114-44a2-b818-841fb0a6c579}</Project>

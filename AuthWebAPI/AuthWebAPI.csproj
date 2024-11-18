@@ -334,13 +334,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerseEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\eCommerseServices.csproj">
       <Project>{935f4292-b569-4226-892c-97fdd6206385}</Project>
-      <Name>Services</Name>
+      <Name>eCommerseServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\Specifications\Specifications.csproj">
       <Project>{ec696607-d114-44a2-b818-841fb0a6c579}</Project>
