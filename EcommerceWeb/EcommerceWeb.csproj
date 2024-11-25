@@ -186,7 +186,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Customer\CustomerIndex.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\Forgat.cshtml" />
@@ -206,6 +206,8 @@
     <Content Include="Views\Customer\CustomerUpdate.cshtml" />
     <Content Include="Views\Customer\CustomerDelete.cshtml" />
     <Content Include="Views\Auth\Welcome.cshtml" />
+    <Content Include="Views\Customer\PersonalInfromationView.cshtml" />
+    <Content Include="Views\Customer\OrderHistoryView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

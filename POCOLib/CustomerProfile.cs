@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ECommerseEntities
 {
-    public class Cart
+    public class CustomerProfile
     {
-        public List<Items> Items = new List<Items>() ;
+        public Customers thecustomer {  get; set; }
 
+        public List<Orders> orderhistory { get; set; }
     }
 }

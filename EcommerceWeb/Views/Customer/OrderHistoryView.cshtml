@@ -1,0 +1,23 @@
+﻿<h2>Orders History</h2>
+
+<hr />
+
+<table>
+    <tr>
+        <th>Order Date</th>
+        <th>Order Id</th>
+        <th>Order Amount</th>
+        <th>Status </th>
+    </tr>
+
+
+    @foreach (var o in Model)
+    {
+        <tr>
+            <td>@o.OrderId</td>
+            <td>@o.amount</td>
+            <td>@o.Status</td>
+            <td>@o.date</td>
+        </tr>
+    }
+</table>

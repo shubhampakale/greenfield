@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<table>
+    <tr><td>Email :</td><td><input type="text" id="txtEmail" /></td></tr>
+    <tr><td>Password :</td><td><input type="password" id="txtpassword" /></td></tr>
+    <tr>
+        <td></td>
+        <td><button onclick="onSignIn()"> Login</button></td>
+    </tr>
+</table>
+
+<script>
+    var onSignIn = () =>
+    {
+        let userEmail = document.getElementById("txtEmail").value;
+        let userPassword = document.getElementById("txtpassword").value;
+
+
+        const url = '/Home/Login';
+
+        const credential = {
+            email: userEmail,
+            password: userPassword
+        };
+
+        fetch(url,
+            {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credential),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Response was not ok');
+                }
+                return response.json();
+            })
+            .then(responseData => {
+                console.log('Success:', responseData);
+            })
+            .catch(error =>
+            {
+                console.error('There was an error !', error);
+            }
+            );
+
+    };
+</script>
+

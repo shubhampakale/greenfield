@@ -1,7 +1,12 @@
-﻿@{
+﻿@using ECommerseEntities
+
+@{
     ViewBag.Title = "Index Customer";
 }
-<h2>Customers Index </h2>
+<h2>Customers Profile </h2>
+
+
+<!--
 <a href="/Customer/CustomerDetails">Customer List</a>
 <br />
 <a href="/Customer/CustomerInsert">Customer Insert</a>
@@ -10,9 +15,13 @@
 <br />
 <a href="/Customer/CustomerDelete">Customer Delete</a>
 <br />
+-->
 
+@{ 
+    CustomerProfile profile = (CustomerProfile)ViewData["theprofile"];
 
+    @Html.Partial("PersonalInfromationView", profile.thecustomer);
+    @Html.Partial("OrderHistoryView", profile.orderhistory);
 
-
-
+}
 

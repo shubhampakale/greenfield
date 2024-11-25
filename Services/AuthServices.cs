@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BinaryDataRepositoryLib;
 using JsonDataRepositoryLib;
-using ECommerseEntities;
 using Specifications;
+using ECommerseEntities;
 
 namespace EcommerseServices
 {

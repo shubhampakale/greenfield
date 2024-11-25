@@ -1,4 +1,5 @@
 ﻿using CRM;
+using ECommerseEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,24 @@ namespace EcommerceWeb.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
-        public ActionResult CustomerIndex()
+        public ActionResult Index()
         {
+            CustomerProfile theProfile = new CustomerProfile();
+            theProfile.thecustomer = new Customers
+            {
+                CustomerId = 1,
+                FirstName = "Nikola",
+                LastName = "Tesla",
+                Email = "AC_Current@tesla.com",
+                Contact = "9970154890"
+            };
+
+            theProfile.orderhistory = new List<Orders>();
+            theProfile.orderhistory.Add(new Orders { OrderId=1, amount=1500, Status="Delivered", date=DateTime.Now});
+            theProfile.orderhistory.Add(new Orders { OrderId=2, amount=3000, Status="Canceled", date=DateTime.Now});
+
+            ViewData["theprofile"] = theProfile;
+
             return View();
         }
         public ActionResult CustomerDetails() 

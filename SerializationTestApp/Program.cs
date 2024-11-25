@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Services;
-using POCO;
+using ECommerseEntities;
 
 namespace SerializationTestApp
 {

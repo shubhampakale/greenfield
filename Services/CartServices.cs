@@ -45,7 +45,7 @@ namespace Services
 
         public bool RemoveFromCart(int id)
         {
-            thecart.Items.RemoveAll(item => (item.ProductId == id));
+             thecart.Items.RemoveAll(item => (item.ProductId == id));
             return false;
         }
     }

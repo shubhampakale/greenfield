@@ -30,6 +30,18 @@ namespace EcommerceWeb.Controllers
             ViewBag.Cart = cart;
             return View();
         }
+        
+        /*
+         
+        shopping cart ---> order placement 
+        order amount 
+        order seeding remove 
+        Place order 
+
+
+         
+         */
+
 
         public ActionResult AddToCart(int id )
         {

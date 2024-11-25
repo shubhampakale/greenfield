@@ -7,11 +7,12 @@
 
 <h3>@Model.Title</h3>
 <p>Price : @Model.UnitPrice</p>
+<h3>@Model.ProductId</h3>
 
 <form action="@Url.Action("AddToCart","Shopping")" method="post">
     <input type="hidden" name="Id" value="@Model.ProductId"/>
     <label for="Quantity">Quantity :</label>
-    <input type="number" id="Quantity" name="Quantity" value="1" min="1" max="10"/>
+    <input type="number" id="Quantity" name="Quantity" value="1" min="1" />
 
     <input type="submit" value="Add to cart"/>
 </form>
