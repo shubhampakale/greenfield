@@ -15,17 +15,20 @@ namespace AuthWebAPI.Controllers
         // GET api/values
         // Action verbs 
         // Api controllers 
-        IProductServices svc = null;
-       // IDataRepository<Product> repository = new JsonRepository<Product>();
+        //IProductServices svc = null;
+        // IDataRepository<Product> repository = new JsonRepository<Product>();
+        ProductServices svc = null;
         ProductsController()
         {
-            svc  = new ProductServices();
+             svc  = new ProductServices();
+            
      
         }
+        
 
         public IEnumerable<Product> Get()    // always returns collection 
         {
-           
+            svc.SeedingJSON();
             List<Product> products = svc.GetAllProducts();
             return products;                                                    
         }

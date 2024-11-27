@@ -13,20 +13,24 @@
     </tr>
 </table>
 
+
+<div id="div1">
+    <p>Result will be shown here</p>
+</div>
+
 <script>
     var onSignIn = () =>
     {
         let userEmail = document.getElementById("txtEmail").value;
         let userPassword = document.getElementById("txtpassword").value;
-
-
         const url = '/Home/Login';
-
-        const credential = {
+        const credential =
+        {
             email: userEmail,
             password: userPassword
         };
 
+/*       
         fetch(url,
             {
             method: 'POST',
@@ -46,7 +50,21 @@
             {
                 console.error('There was an error !', error);
             }
-            );
+        );
+*/
+        $.ajax({
+            url: url,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(credential),
+            success: (result) => {
+                $("#div1").html(result);
+                console.log(result);
+            },
+            error: () => {
+                console.log("Something went wrong");
+            }
+        });
 
     };
 </script>

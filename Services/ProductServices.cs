@@ -114,7 +114,7 @@ namespace Services
             if (theProduct != null)
             {
                 List<Product> allProducts = GetAllProducts();
-                allProducts.Remove(theProduct);
+                allProducts = allProducts.FindAll((p) => p.ProductId != product_id);
 
                 IDataRepository<Product> repo = new JsonRepository<Product>();
                 repo.Serialize(realtivePath, allProducts);

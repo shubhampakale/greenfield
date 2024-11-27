@@ -5,7 +5,7 @@
 
 <h1>Product Information</h1>
 <style>
-    th,td
+    
     table {
         border-collapse: collapse;
         width: 100%;
@@ -74,6 +74,12 @@
                         '</tr>';
 
                     $('#product tbody').append(row);
+                });
+
+                // Add click event listener to table cells
+                $('#product tbody').on('click', 'td', function () {
+                    var rowIndex = $(this).closest('tr').index(); // Get the index of the row
+                    console.log('Row number: ' + (rowIndex + 1)); // Log the row number (1-based index)
                 });
 
             }

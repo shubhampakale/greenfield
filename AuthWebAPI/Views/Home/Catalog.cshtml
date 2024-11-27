@@ -1,0 +1,232 @@
+﻿@{
+    ViewBag.Title = "Catalog";
+}
+
+<h2>Catalog</h2>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    th {
+        text-align: center;
+        padding: 8px;
+        background-color: #ff0000;
+        border: 1px solid black;
+    }
+
+    td {
+        text-align: center;
+        padding: 8px;
+        border: 1px solid black;
+    }
+
+    tr:nth-child(even) {
+        background-color: #00ff90;
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        const url = '/api/Products';
+
+        // Load all products on page load
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType: 'json',
+            success: function (products) {
+                $.each(products, function (index, item) {
+                    var row = '<tr>' +
+                        '<td>' + item.ProductId + '</td>' +
+                        '<td>' + item.Title + '</td>' +
+                        '<td>' + item.Description + '</td>' +
+                        '<td>' + item.Quantity + '</td>' +
+                        '<td>' + item.UnitPrice + '</td>' +
+                        '</tr>';
+                    $('#product tbody').append(row);
+                });
+                console.log(products);
+            },
+            error: function ()
+            {
+                console.log("Something went wrong");
+            }
+        });
+
+        // Add click event listener to table cells
+        $('#product tbody').on('click', 'td', function () {
+            var rowIndex = $(this).closest('tr').index(); // Get the index of the row
+            console.log('Row number: ' + (rowIndex + 1)); // Log the row number (1-based index)
+        });
+
+        // Get product by ID
+        $('#getdatabtn').on('click', function () {
+            let userdid = document.getElementById("product_id").value;
+            const idurl = '/api/Products/' + userdid;
+
+            $.ajax({
+                url: idurl,
+                type: "GET",
+                dataType: 'json',
+                success: function (product) {
+                    var row = '<tr>' +
+                        '<td>' + product.ProductId + '</td>' +
+                        '<td>' + product.Title + '</td>' +
+                        '<td>' + product.Description + '</td>' +
+                        '<td>' + product.Quantity + '</td>' +
+                        '<td>' + product.UnitPrice + '</td>' +
+                        '</tr>';
+                    $('#table2 tbody').append(row);
+                },
+                error: function () {
+                    console.log("Failed to fetch product.");
+                }
+            });
+        });
+
+        // Delete product by ID
+        $('#deletebtn').on('click', function () {
+            let id = document.getElementById("product_id").value;
+            const dlturl = '/api/Products/' + id;
+
+            $.ajax({
+                url: dlturl,
+                type: "DELETE",
+                success: function (response) {
+                    console.log("Product Deleted Successfully");
+                    window.location.reload(); // Reload page after successful deletion
+                },
+                error: function () {
+                    console.log("Failed to delete product.");
+                }
+            });
+        });
+
+        // Update product
+        $('#updatebtn').on("click", function () {
+            let id = $("#id").html();  // Use this div to hold the product ID for the update
+            let name = $("#Name").val();
+            let description = $("#Description").val();
+            let quantity = $("#Quantity").val();
+            let unitprice = $("#UnitPrice").val();
+
+            // Validate the inputs
+            if (!name || !description || !quantity || !unitprice) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            let product = {
+                ProductId: id,
+                Title: name,          // Note: API may use "Title" instead of "Name"
+                Description: description,
+                Quantity: quantity,
+                UnitPrice: unitprice
+            };
+
+            const url = '/api/products/' + id;
+            alert(JSON.stringify(product)); // Remove alert once tested
+
+            $.ajax({
+                url: url,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(product),
+                dataType: 'json',
+                success: function (result) {
+                    console.log("Successfully Updated");
+                    $("#product tbody").html(result); // Clear form
+                    var updatedProductRow = `
+                        <tr>
+                            <td>${result.productId}</td>
+                            <td>${result.productName}</td>
+                            <td>${result.price}</td>
+                            <!-- Add other fields as necessary -->
+                        </tr>`;
+                        $("#product tbody").html(updatedProductRow); 
+                },
+
+                error: function () {
+                    console.log("Something went wrong while updating.");
+                }
+            });
+        });
+    });
+</script>
+
+<div>
+    <table id="product">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data from JQuery-->
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <hr />
+    <input type="number" id="product_id" name="product_id" />
+    <button id="getdatabtn">Get Product</button>
+</div>
+
+<div>
+    <table id="table2">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data from JQuery-->
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <button id="deletebtn">Delete Product</button>
+</div>
+
+<div id="updateproduct" class="col-6">
+    <form id="form1">
+        <div id="id">
+            <!-- This will hold the Product ID for update -->
+        </div>
+        <div>
+            <label for="Name">Name: </label>
+            <input type="text" id="Name" name="name" /><br /><br />
+        </div>
+        <div>
+            <label for="Description">Description: </label>
+            <input type="text" id="Description" name="description" /><br /><br />
+        </div>
+        <div>
+            <label for="Quantity">Quantity: </label>
+            <input type="text" id="Quantity" name="quantity" /><br /><br />
+        </div>
+        <div>
+            <label for="unitprice">Unit Price: </label>
+            <input type="text" id="UnitPrice" name="unitprice" /><br /><br />
+        </div>
+        <div>
+            <input type="button" id="updatebtn" value="UPDATE" />
+        </div>
+    </form>
+</div>
