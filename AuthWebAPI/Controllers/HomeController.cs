@@ -66,5 +66,10 @@ namespace AuthWebAPI.Controllers
             return View();
         }
 
+        public ActionResult CatalogAjax()
+        {
+            return View();
+        }
+
     }
 }

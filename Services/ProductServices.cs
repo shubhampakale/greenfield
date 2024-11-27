@@ -98,9 +98,8 @@ namespace Services
             Product theProduct = Get(productTobeUpdated.ProductId);
             if(theProduct != null) 
             {
-                List<Product> allProducts = GetAllProducts();   
-                allProducts.Remove(theProduct);
-                allProducts.Add(productTobeUpdated);
+                List<Product> allProducts = GetAllProducts();
+                allProducts = allProducts.FindAll((p) => p.ProductId != productTobeUpdated.ProductId);
 
                 IDataRepository<Product> repo = new JsonRepository<Product>();
                 repo.Serialize(realtivePath, allProducts);

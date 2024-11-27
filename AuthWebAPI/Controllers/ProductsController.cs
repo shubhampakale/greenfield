@@ -28,7 +28,7 @@ namespace AuthWebAPI.Controllers
 
         public IEnumerable<Product> Get()    // always returns collection 
         {
-            svc.SeedingJSON();
+            
             List<Product> products = svc.GetAllProducts();
             return products;                                                    
         }
@@ -51,6 +51,7 @@ namespace AuthWebAPI.Controllers
         // PUT api/values/5
         public void Put(int id, [FromBody] Product product)
         {
+
             svc.Update(product);
         }
 

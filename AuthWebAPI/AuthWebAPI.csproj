@@ -267,6 +267,7 @@
     <Content Include="Views\Home\ClientRegister.cshtml" />
     <Content Include="Views\Home\Grid.cshtml" />
     <Content Include="Views\Home\Catalog.cshtml" />
+    <Content Include="Views\Home\CatalogAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
