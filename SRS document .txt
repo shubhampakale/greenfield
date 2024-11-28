@@ -39,8 +39,8 @@ Mongo db - parent child relation
 
 
 identify enties 
-attributes 
 realtions define
+attributes 
 
 Case studies 
 https://github.com/RaviTambade/TFLECommerce

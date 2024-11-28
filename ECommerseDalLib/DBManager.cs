@@ -138,14 +138,22 @@ namespace ECommerceDALLib
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    int id = int.Parse(dr["Id"].ToString());
                     string name = dr["Name"].ToString();
                     string description = dr["Description"].ToString();
                     int quantity = int.Parse(dr["Quantity"].ToString());
+                    double unitprice = double.Parse(dr["UnitPrice"].ToString());
+                    string imgurl = dr["Image"].ToString();
+                   
+
 
                     Product product = new Product();
                     product.Title = name;
                     product.Description = description;
                     product.Quantity = quantity;
+                    product.UnitPrice = unitprice;
+                    product.ImgUrl= imgurl;
+                    product.ProductId = id;
                     products.Add(product);
 
                 }
@@ -164,12 +172,12 @@ namespace ECommerceDALLib
 
         }
 
-        public static Product GetById(int id)
+        public static Product GetById(int Id)
         {
             List<Product> products = new List<Product>();
             Product product = new Product();
             IDbConnection con = new SqlConnection(conString);
-            string query = "SELECT * from products_shubham WHERE Id=" + id;
+            string query = "SELECT * from products_shubham WHERE Id=" + Id;
             IDbCommand cmd = new SqlCommand(query, con as SqlConnection);
             try
             {
@@ -177,14 +185,19 @@ namespace ECommerceDALLib
                 IDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    int id = int.Parse(dr["Id"].ToString());
                     string name = dr["Name"].ToString();
                     string description = dr["Description"].ToString();
                     int quantity = int.Parse(dr["Quantity"].ToString());
+                    double unitprice = double.Parse(dr["UnitPrice"].ToString());
+                    string imgurl = dr["Image"].ToString();
 
-                    
                     product.Title = name;
                     product.Description = description;
                     product.Quantity = quantity;
+                    product.UnitPrice = unitprice;
+                    product.ImgUrl = imgurl;
+                    product.ProductId = id;
                     products.Add(product);
 
                 }
