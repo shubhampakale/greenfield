@@ -1,0 +1,27 @@
+Solution : online Shopping solution
+Bussiness pipline : Goods----supplies------maintained----sold out
+
+SRS:
+	Functional Requirements(Features)
+		Inventory:
+			products,categories
+		Shpping cart experiance:
+			items,cart
+		Order Processing 
+			order, workorder, purchase order
+			bills,invoices,
+		Payment processing 
+			payments 
+		shipment :
+			Vendors
+		CRM:
+			customer deatils 
+			history 
+			rating, likes, comments, feedback 
+			subscription
+		
+	Non-Functioal Requirements
+		security(authentication and Authrization)
+			membership and role managment, permissions
+		scalability
+		interoperability
