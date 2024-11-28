@@ -6,29 +6,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Specifications;
-using Services;
+using EcommerseServices.DBServices;
 
 namespace AuthWebAPI.Controllers
 {
     public class ProductsController : ApiController
     {
-        // GET api/values
-        // Action verbs 
-        // Api controllers 
-        //IProductServices svc = null;
-        // IDataRepository<Product> repository = new JsonRepository<Product>();
-        ProductServices svc = null;
-        ProductsController()
-        {
-             svc  = new ProductServices();
-            
-     
-        }
+        
         
 
         public IEnumerable<Product> Get()    // always returns collection 
         {
-            
+            IProductServices svc = new ProductService();
             List<Product> products = svc.GetAllProducts();
             return products;                                                    
         }
@@ -36,7 +25,7 @@ namespace AuthWebAPI.Controllers
         // GET api/values/5
         public Product Get(int id)
         {
-           
+            IProductServices svc = new ProductService();
             Product product = svc.Get(id);
             return product;
         }
@@ -45,20 +34,23 @@ namespace AuthWebAPI.Controllers
         
         public void Post([FromBody] Product product)
         {
+            IProductServices svc = new ProductService();
             svc.Insert(product);
         }
 
         // PUT api/values/5
         public void Put(int id, [FromBody] Product product)
         {
-
+            IProductServices svc = new ProductService();
             svc.Update(product);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            IProductServices svc = new ProductService();
             svc.Delete(id);
         }
+
     }
 }

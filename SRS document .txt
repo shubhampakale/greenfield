@@ -25,3 +25,22 @@ SRS:
 			membership and role managment, permissions
 		scalability
 		interoperability
+		
+		
+
+Transaction -  Logical sequence of operations 
+
+
+Sql vs no Sql 
+Relationship between classes - Association, 
+RDBMS - Entities relation has a is a 
+Mongo db - parent child relation 
+80-20 rule : 20 softwares will make profit 
+
+
+identify enties 
+attributes 
+realtions define
+
+Case studies 
+https://github.com/RaviTambade/TFLECommerce

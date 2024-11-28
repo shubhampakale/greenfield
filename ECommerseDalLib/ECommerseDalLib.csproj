@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{935F4292-B569-4226-892C-97FDD6206385}</ProjectGuid>
+    <ProjectGuid>{9C88F33B-F4AB-4690-A7FF-F160E6ACD884}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services</RootNamespace>
-    <AssemblyName>Services</AssemblyName>
+    <RootNamespace>ECommerseDalLib</RootNamespace>
+    <AssemblyName>ECommerseDalLib</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,9 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,37 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthServices.cs" />
-    <Compile Include="CartServices.cs" />
-    <Compile Include="DBServices\ProductService.cs" />
-    <Compile Include="RepoServices\ProductServices.cs" />
+    <Compile Include="DBManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataRepositoryLib\BinaryDataRepositoryLib.csproj">
-      <Project>{7892c4ad-9f8b-43a8-9c40-45bc55492e9b}</Project>
-      <Name>BinaryDataRepositoryLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ECommerseDalLib\ECommerseDalLib.csproj">
-      <Project>{9c88f33b-f4ab-4690-a7ff-f160e6acd884}</Project>
-      <Name>ECommerseDalLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JsonDataRepository\JsonDataRepository.csproj">
-      <Project>{0a9387f2-384a-46b1-a689-2f9b6c7228e3}</Project>
-      <Name>JsonDataRepository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
       <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
       <Name>ECommerseEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Specifications\Specifications.csproj">
-      <Project>{ec696607-d114-44a2-b818-841fb0a6c579}</Project>
-      <Name>Specifications</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
