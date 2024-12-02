@@ -25,11 +25,11 @@ namespace ECommerceDALLib.DisConnectedDataAccess
             DataTable table = dataset.Tables[0];
             DataRow row = table.NewRow();
             row["Id"] = product.ProductId;
-            row["Title"] = product.Title;
+            row["Name"] = product.Title;
             row["Description"] = product.Description;
             row["UnitPrice"] = product.UnitPrice;
             row["Quantity"] = product.Quantity;
-            row["ImageUrl"] = product.ImgUrl;
+            row["Image"] = product.ImgUrl;
             table.Rows.Add(row);
             adapter.Update(dataset);
             return true;
@@ -57,7 +57,7 @@ namespace ECommerceDALLib.DisConnectedDataAccess
                 }
             }
 
-            rowToUpdate["Description"] = product.Description;
+            //rowToUpdate["Description"] = product.Description;
             adapter.Update(dataset);
             return true;
         }

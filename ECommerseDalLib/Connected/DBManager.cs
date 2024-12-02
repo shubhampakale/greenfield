@@ -142,7 +142,7 @@ namespace ECommerceDALLib
                     string name = dr["Name"].ToString();
                     string description = dr["Description"].ToString();
                     int quantity = int.Parse(dr["Quantity"].ToString());
-                    double unitprice = double.Parse(dr["UnitPrice"].ToString());
+                    decimal unitprice = decimal.Parse(dr["UnitPrice"].ToString());
                     string imgurl = dr["Image"].ToString();
                    
 
@@ -189,7 +189,7 @@ namespace ECommerceDALLib
                     string name = dr["Name"].ToString();
                     string description = dr["Description"].ToString();
                     int quantity = int.Parse(dr["Quantity"].ToString());
-                    double unitprice = double.Parse(dr["UnitPrice"].ToString());
+                    decimal unitprice = decimal.Parse(dr["UnitPrice"].ToString());
                     string imgurl = dr["Image"].ToString();
 
                     product.Title = name;

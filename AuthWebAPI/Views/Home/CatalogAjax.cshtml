@@ -85,6 +85,7 @@
             const quantity = $('#txtUpdateQuantity').val();
             const imageUrl = $('#txtUpdateImageUrl').val();
             let product = {
+                "ProductId": id,
                 "Title": name,
                 "Description": description,
                 "UnitPrice": unitPrice,
@@ -152,6 +153,7 @@
             data: JSON.stringify(product),
             success: function (response) {
                 alert('Product updated successfully!');
+                console.log
                 loadProducts();  // Refresh the Product list
             },
             error: function (xhr, status, error) {

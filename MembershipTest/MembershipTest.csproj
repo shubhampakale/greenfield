@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POCOLib\ECommerseEntities.csproj">
-      <Project>{5A18C606-60AB-496A-8404-801339B81F61}</Project>
+      <Project>{5a18c606-60ab-496a-8404-801339b81f61}</Project>
       <Name>ECommerseEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\eCommerseServices.csproj">
